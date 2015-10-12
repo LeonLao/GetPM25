@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GetPM25</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="city">城市</string>
+    <string name="PM25">PM2.5</string>
+    <string name="AQI">空气质量指数</string>
+    <string name="quality">空气质量</string>
+    <string name="PM10">PM10</string>
+    <string name="CO">一氧化碳</string>
+    <string name="NO2">二氧化氮</string>
+    <string name="O3">臭氧</string>
+    <string name="SO2">二氧化硫</string>
+    <string name="time">更新时间</string>
+</resources>
