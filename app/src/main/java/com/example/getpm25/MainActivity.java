@@ -1,11 +1,8 @@
 package com.example.getpm25;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +33,7 @@ public class MainActivity extends Activity {
                 String id = editText.getText().toString();
                 //if (id.length()<1){
                  if(TextUtils.isEmpty(id)){
-                    Toast.makeText(MainActivity.this,"内容不能为空",Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(MainActivity.this,"内容不能为空",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 task = new Task(MainActivity.this,textView);
@@ -54,7 +51,7 @@ public class MainActivity extends Activity {
                     return;
                 }
                 weatherTask = new WeatherTask(MainActivity.this,textView);
-                weather.execute(add);
+                weatherTask.execute(add);
             }
         });
 

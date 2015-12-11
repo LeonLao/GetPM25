@@ -28,7 +28,10 @@ public class Task extends AsyncTask<String,Void,String> {
     TextView textView;
 
     private static final String URL = "http://web.juhe.cn:8080/environment/air/pm";
-    private static final String KEY = "70f39814c1b263ed181653ed70728129";
+   private static final String KEY = "70f39814c1b263ed181653ed70728129";
+
+
+
 
     public Task(Context context, TextView textView) {
         super();
@@ -74,6 +77,8 @@ public class Task extends AsyncTask<String,Void,String> {
             HttpClient httpClient = new DefaultHttpClient();
 
             HttpResponse httpResponse = httpClient.execute(httpRequest);
+
+
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
                 String strResult = EntityUtils.toString(httpResponse.getEntity());
                 return strResult;
@@ -105,6 +110,7 @@ public class Task extends AsyncTask<String,Void,String> {
                             + context.getString(R.string.O3) + ": " + resultJsonObject.getString("O3") + "\n"
                             + context.getString(R.string.SO2) + ": " + resultJsonObject.getString("SO2") + "\n"
                             + context.getString(R.string.time) + ": " + resultJsonObject.getString("time") + "\n";
+
                     textView.setText(output);
                 }else if (resultCode ==202){
                     String reason = jsonObject.getString("reason");
