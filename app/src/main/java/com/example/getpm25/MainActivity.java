@@ -3,6 +3,7 @@ package com.example.getpm25;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,9 +14,11 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
     private EditText editText;
-    private Button button;
+    private Button pm25,weather;
     private TextView textView;
+
     Task task;
+    WeatherTask weatherTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,19 +26,35 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         editText = (EditText)findViewById(R.id.editText);
-        button =(Button)findViewById(R.id.button);
+        pm25 =(Button)findViewById(R.id.button);
         textView = (TextView)findViewById(R.id.textView);
+        weather = (Button)findViewById(R.id.button2);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        pm25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String id = editText.getText().toString();
-                if (id.length()<1){
+                //if (id.length()<1){
+                 if(TextUtils.isEmpty(id)){
                     Toast.makeText(MainActivity.this,"内容不能为空",Toast.LENGTH_SHORT).show();;
                     return;
                 }
                 task = new Task(MainActivity.this,textView);
                 task.execute(id);
+            }
+        });
+
+
+        weather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String add = editText.getText().toString().trim();
+                if(TextUtils.isEmpty(add)){
+                    Toast.makeText(MainActivity.this,"内容不能为空",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                weatherTask = new WeatherTask(MainActivity.this,textView);
+                weather.execute(add);
             }
         });
 

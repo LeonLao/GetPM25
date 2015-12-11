@@ -93,8 +93,8 @@ public class Task extends AsyncTask<String,Void,String> {
                 JSONObject jsonObject = new JSONObject(result);
                 int resultCode = jsonObject.getInt("resultcode");
                 if (resultCode ==200){
-                    JSONArray resultJsonArray = jsonObject.getJSONArray("result");
-                    JSONObject resultJsonObject = resultJsonArray.getJSONObject(0);
+                    JSONArray resultJsonArray = jsonObject.getJSONArray("result");//将结果转换场JSONArray对象的形式
+                    JSONObject resultJsonObject = resultJsonArray.getJSONObject(0);//获取json数组中个的第一项
                     String output = context.getString(R.string.city) + ": " + resultJsonObject.getString("city") + "\n"
                             + context.getString(R.string.PM25) + ": " + resultJsonObject.getString("PM2.5") + "\n"
                             + context.getString(R.string.AQI) + ": " + resultJsonObject.getString("AQI") + "\n"
