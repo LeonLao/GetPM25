@@ -44,4 +44,13 @@
         android:layout_toEndOf="@+id/button"
         android:layout_marginLeft="43dp"
         android:layout_marginStart="43dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
 </RelativeLayout>
